@@ -1,0 +1,4 @@
+"0","writeLines('', '.gitignore', path = '3207_workshop/')"
+"2","Error in writeLines("""", "".gitignore"", path = ""3207_workshop/"") : 
+  unused argument (path = ""3207_workshop/"")
+"
