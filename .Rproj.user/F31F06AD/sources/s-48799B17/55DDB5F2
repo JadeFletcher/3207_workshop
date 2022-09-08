@@ -3,7 +3,7 @@
     "path": "~/GitHub/3207_workshop/git_fishes_student.Rmd",
     "project_path": "git_fishes_student.Rmd",
     "type": "r_markdown",
-    "hash": "1353405376",
+    "hash": "1570053980",
     "contents": "",
     "dirty": false,
     "created": 1662634679945.0,
@@ -12,14 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "last_setup_crc32": "48799B17d571bbe7"
+        "last_setup_crc32": "48799B17d571bbe7",
+        "cursorPosition": "124,269",
+        "scrollLine": "106"
     },
     "folds": "",
-    "lastKnownWriteTime": 1662634595,
+    "lastKnownWriteTime": 1662637978,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1662634692364,
+    "last_content_update": 1662637978923,
     "read_only": false,
     "read_only_alternatives": []
 }
