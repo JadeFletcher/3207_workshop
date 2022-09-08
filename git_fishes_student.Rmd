@@ -127,7 +127,7 @@ Second, drop out irrelevant columns and check that there are no spelling issues 
 ```{r summaryTab}
 clean <- complete %>% select(-loc, -comment, -...1)
 
-summary <- clean %>% group_by(species) %>%   summarise(across(c(sl, activity), funs(mean, se=sd(.)/sqrt(n()))))
+summary <- clean %>% group_by(species) %>%   summarise(across(c(sl, activity), funs(mean, se=sd(.)/sqrt(n()), n())))
 
 flextable(summary)
 
