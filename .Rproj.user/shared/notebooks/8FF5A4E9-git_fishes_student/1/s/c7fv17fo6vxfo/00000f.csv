@@ -1,0 +1,6 @@
+"0","acantho <- readPNG(""./pics/acantho.png"")"
+"0","ambon <- readPNG(""./pics/ambon.png"")"
+"0","chromis <- readPNG(""./pics/chromis.png"")"
+"0","humbug <- readPNG(""./pics/humbug.png"")"
+"0","lemon <- readPNG(""./pics/lemon.png"")"
+"0","whitedams <- readPNG(""./pics/whitedams.png"")"

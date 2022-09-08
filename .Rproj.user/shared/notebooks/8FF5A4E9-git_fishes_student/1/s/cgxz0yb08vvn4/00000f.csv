@@ -1,0 +1,13 @@
+"0","data_clean %>% filter(species == ""chromis""|species== ""lemon""|species == ""humbug"") %>% ggplot(aes(species, activity, fill=treatment)) + geom_boxplot() + "
+"0","  annotation_raster(chromis, xmin = 0.7, xmax = 1.2,ymin = 72, ymax = 80) + ylim(15,80) + "
+"0","  annotation_raster(humbug, xmin = 1.7, xmax = 2.2,ymin = 72, ymax = 80) + ylim(15,80) + "
+"0","  annotation_raster(lemon, xmin = 2.7, xmax = 3.2,ymin = 72, ymax = 80) + ylim(15,80)"
+"2","Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing
+scale.
+"
+"2","Scale for 'y' is already present. Adding another scale for 'y', which will replace the existing
+scale.
+"
+"2","Warning:"
+"2"," Removed 35 rows containing non-finite values (stat_boxplot).
+"

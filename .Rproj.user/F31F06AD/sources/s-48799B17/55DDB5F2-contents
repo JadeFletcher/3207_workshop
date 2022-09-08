@@ -174,7 +174,7 @@ Last question for this task. I promise! It's important to think very carefully a
 >**Question 7**: Assume that you added the `pics/` folder to your working directory to plot pictures of each fish on your figure. Do you want to track the files in the pic/ folder on GitHub despite them being .png files? Explain your reasoning. 
 
 ```{r, answer6}
-# you would want to track them so you are able to call on the images to create the graph.
+# you would want to track them so you are able to call on the images to create the graph. Otherwise the code would be calling on an empty or nonexistent folder to access the images.
 ```
 
 # **Task 6**
