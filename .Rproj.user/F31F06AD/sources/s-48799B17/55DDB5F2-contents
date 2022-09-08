@@ -160,7 +160,7 @@ Note the code chunk used to make the figure. It has a `fig.cap` argument. That m
 Now that you have the figure you may also want to write / save it as a separate file. Use `ggsave` function to save the figure(s) to your new `output/figures/`:
 
 ```{r, savefig}
-ggsave('graph2', boxgraph, path = 'output/figures/', device = 'png')
+ggsave('graph3', boxgraph, path = 'output/figures/', device = 'png')
 ```
 
 >**Question 6**: Given that you have added `output/figures/` to your `.gitignore` file describe what you notice about what you see in *GitHub Desktop*. 
