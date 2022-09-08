@@ -1,0 +1,5 @@
+"0","boxgraph <- ggplot(data = clean, mapping = aes(y = activity, x = species, fill = treatment)) + geom_boxplot()"
+"0",""
+"0","ggsave('graph1', boxgraph, path = 'output/', device = 'png')"
+"2","Saving 7 x 7 in image
+"
