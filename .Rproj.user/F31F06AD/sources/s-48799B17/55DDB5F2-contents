@@ -166,7 +166,7 @@ ggsave('graph7', boxgraph, path = 'output/figures/', device = 'png')
 >**Question 6**: Given that you have added `output/figures/` to your `.gitignore` file describe what you notice about what you see in *GitHub Desktop*. 
 
 ```{r}
-## Write your answer here
+# new graphs in this location do not appear in the repo.
 ```
 
 Last question for this task. I promise! It's important to think very carefully about what you track and ignore.
@@ -174,7 +174,7 @@ Last question for this task. I promise! It's important to think very carefully a
 >**Question 7**: Assume that you added the `pics/` folder to your working directory to plot pictures of each fish on your figure. Do you want to track the files in the pic/ folder on GitHub despite them being .png files? Explain your reasoning. 
 
 ```{r, answer6}
-## Add your answer here
+# you would want to track them so you are able to call on the images to create the graph.
 ```
 
 # **Task 6**
@@ -183,7 +183,10 @@ This task involves teaming up with a collaborator. Exchange *GitHub* username de
 Now, lets create a new figure in the code block below that simplifies the one produced in **Task 5**. Instead of all species, lets just plot three of the species (chromis, lemon, and acantho). In the figure code chunk make sure you add the necessary arguments (e.g., `fig.cap`) so that you can refer to Figure \@ref(fig:collabFig).
 
 ```{r, collabFig, echo=TRUE, eval=TRUE}
-# You want to make changes to your collaborators figure in Task 5. Maybe you want to create a figure that focuses only on three fish species instead of the 5. More specifically, chromis, lemon, and acantho. Add code here to revise their figure to do that.
+
+clean[clean$species == c('chromis', 'lemon', 'acantho'), ]
+
+ggplot(clean[clean$species == c('chromis', 'lemon', 'acantho'), ], aes(activity, sl, color=treatment)) + geom_boxplot() + facet_wrap(~species)
 ```
 
 

@@ -1,0 +1,6 @@
+"0","#why is this question here and not *after* the data has been cleaned?"
+"0",""
+"0","path <- ""./output/data/OA_activitydat_20190302_BIOL3207_output.csv"""
+"0",""
+"0","write_csv(data, file = path)"
+"0",""

@@ -1,27 +1,27 @@
 {
-    "id": "55DDB5F2",
-    "path": "~/GitHub/3207_workshop/git_fishes_student.Rmd",
-    "project_path": "git_fishes_student.Rmd",
+    "id": "211AA2D6",
+    "path": "~/GitHub/u5642816_BIOL3207_Week6/git_fishes_student.Rmd",
+    "project_path": null,
     "type": "r_markdown",
-    "hash": "2228674280",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1662634679945.0,
+    "created": 1662642589555.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 5,
     "properties": {
         "source_window_id": "",
         "Source": "Source",
         "last_setup_crc32": "48799B17d571bbe7",
-        "cursorPosition": "209,251",
-        "scrollLine": "195"
+        "cursorPosition": "143,0",
+        "scrollLine": "137"
     },
     "folds": "",
-    "lastKnownWriteTime": 1662643038,
+    "lastKnownWriteTime": 1662642338,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1662643038445,
+    "last_content_update": 1662642688719,
     "read_only": false,
     "read_only_alternatives": []
 }

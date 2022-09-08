@@ -1,0 +1,7 @@
+"0","ggplot(clean[clean$species == c('chromis', 'lemon', 'acantho'), ], aes(activity, sl, color=treatment)) + geom_boxplot() + facet_wrap(~species)
+"
+"2","Warning in clean$species == c(""chromis"", ""lemon"", ""acantho"") :"
+"2","
+ "
+"2"," longer object length is not a multiple of shorter object length
+"
