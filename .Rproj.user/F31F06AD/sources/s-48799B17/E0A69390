@@ -3,7 +3,7 @@
     "path": "~/GitHub/3207_workshop/.gitignore",
     "project_path": ".gitignore",
     "type": "gitignore",
-    "hash": "4040181995",
+    "hash": "3501318033",
     "contents": "",
     "dirty": false,
     "created": 1662641501261.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "0,16",
+        "cursorPosition": "0,15",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1662641848,
+    "lastKnownWriteTime": 1662641892,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1662641848528,
+    "last_content_update": 1662641892358,
     "read_only": false,
     "read_only_alternatives": []
 }
