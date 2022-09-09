@@ -1,0 +1,76 @@
+---
+title: "EDA_workshop_answers.rmd"
+output: html_document
+date: '2022-08-07'
+---
+
+# Task 1: Loading the data
+```{r}
+library(tidyverse)
+data <- read.csv('data.csv')
+print(data)
+````
+
+
+# Task 2: Null Hypothesis Significance Testing
+
+## Formulation of null hypotheses
+
+## Hypotheses
+
+Null Hypothesis 1: Sex has no effect on the number of steps taken by an individual
+
+Null Hypothesis 2: BMI has no effect on the number of steps taken by a female.
+
+## Significance
+
+Null hypotheses prompt us to determine whether a relationship observed is statistically significant.
+
+## Calculating Mean and Standard Deviation
+
+```{r}
+males <- data$sex == 'male'
+females <- data$sex == 'female'
+
+maledata <- data[males, ]
+view(maledata)
+
+femaledata <- data[females, ]
+view(femaledata)
+
+mean(maledata$steps)
+mean(femaledata$steps)
+
+sd(maledata$steps)
+sd(femaledata$steps)
+
+t.test(maledata$steps, femaledata$steps, paired = FALSE)
+
+
+
+```
+p-value = 1.06*10^(-11)
+effect size = 0.323
+test used = independent t-test
+
+## Hypothesis 2
+
+```{r}
+plot(femaledata$bmi, femaledata$steps)
+
+shapiro.test(femaledata$steps)
+shapiro.test(femaledata$bmi)
+
+cor.test(femaledata$bmi, femaledata$steps, method = 'pearson')
+cor.test(femaledata$bmi, femaledata$steps, method = 'spearman')
+```
+p-value = 2.2*10^(-6)
+effect size = -0.312
+test used = Pearson's r
+
+
+# Task 3: Exploratory Data Analysis
+
+```{r}
+
+```

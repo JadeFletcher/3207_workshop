@@ -1,0 +1,5 @@
+"0","clean <- complete %>% select(-loc, -comment, -...1)"
+"0",""
+"0","summary <- clean %>% group_by(species) %>%   summarise(across(c(sl, activity), funs(mean, se=sd(.)/sqrt(n()), n())))"
+"0",""
+"0","flextable(summary)"

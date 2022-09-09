@@ -1,0 +1,1 @@
+"0","## This folder is not included in the repository at all, as it is seen as empty. By including another .gitignore file in the folder, the folders can be included (as they are necessary for the code to run) without including their contents."

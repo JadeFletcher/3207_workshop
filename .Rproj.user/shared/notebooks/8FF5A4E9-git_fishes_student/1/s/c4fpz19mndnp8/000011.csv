@@ -1,1 +1,2 @@
-"0",""
+"0","# Use flextable to render the summary table in a tidy format"
+"0","flextable(means.control[,c(1,6,2,3,7,8)]) %>% set_header_labels(n = ""Count"")"

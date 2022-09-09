@@ -415,7 +415,7 @@ Re-analyse the data for a single species using permutations instead of a t-test.
 #the 'extreme' column will record whether this t-stat is greater than the true data's t-stat
 samp_dist <- tibble(stat = rep(F,5000), extreme = rep(F,5000))
 
-for(i in 1:5000){
+for(i in 1:500){
   #create a temporary data set in which the treatment column is shuffled, and keep only the data for "acantho" species
   temp_data <- data_clean %>% mutate(treatment = sample(treatment, length(treatment), replace = F)) %>% filter(species == "acantho")
   #run a t-test on this permutation, and save the t-statistic in the samp_dist object

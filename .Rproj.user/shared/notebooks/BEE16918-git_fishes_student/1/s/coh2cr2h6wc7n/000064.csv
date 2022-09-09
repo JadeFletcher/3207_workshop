@@ -1,0 +1,18 @@
+"0",""
+"0","for(x in 1:200){"
+"0",""
+"0","  newdata <- clean %>% mutate(treatment = sample(treatment, length(treatment), replace = F)) %>% filter(species == ""humbug"")"
+"0","  samp_dist$stat[x] <- t.test(newdata$activity[newdata$treatment == ""CO2""],newdata$activity[newdata$treatment == ""control""])$statistic"
+"0","  samp_dist$extreme[x] <- (abs(samp_dist$stat[x]) > abs(results_activity$T.stat[1]))"
+"0","}"
+"2","Warning:"
+"2"," Unknown or uninitialised column: `stat`.
+"
+"2","Warning:"
+"2"," Unknown or uninitialised column: `extreme`.
+"
+"0","print(length(which(samp_dist$extreme)) / length(which(!samp_dist$extreme))) "
+"1","[1]"
+"1"," 0.37"
+"1","
+"

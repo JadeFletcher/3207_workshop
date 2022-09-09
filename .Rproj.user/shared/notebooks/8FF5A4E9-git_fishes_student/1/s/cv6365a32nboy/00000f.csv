@@ -1,0 +1,1 @@
+"0","# The pics folder does need to be tracked on Github. We dont track the figures folder because the figures can be recreated by the code in the r markdown document, but this is not true for the pictures. Much like with the raw data, the code needs existing pictures to be supplied to it."

@@ -124,7 +124,7 @@ complete <- na.omit(data)
 
 Second, drop out irrelevant columns and check that there are no spelling issues in `species` and `treatment`. Create a table of summary data that includes: 1) the mean, 2) the standard error and 3) the sample sizes of unique fish across ALL six fish species for each treatment. This will also help you detect any spelling errors. You can use the R package [`flextable`](https://ardata-fr.github.io/flextable-book/) to print out the results in a nice neat format! If you haven't heard about `flextable` spend 10 or so minutes having a look at it's functionality. It's incredible! You'll use this for tables throughout.
 
-```{r summaryTab}
+```{r, summaryTab}
 clean <- complete %>% select(-loc, -comment, -...1)
 
 summary <- clean %>% group_by(species) %>%   summarise(across(c(sl, activity), funs(mean, se=sd(.)/sqrt(n()), n())))
@@ -222,11 +222,32 @@ Here, run some statistical tests to determine, for each species, whether the con
 >**Stretch Task**: You can of course do this for each species seperately, but those who want a challenge, think about how you might use a loop or even some wrangling methods you have already learnt from the tidyverse to run these tests across all 6 species in a single block of code. If you're familiar with functions, you can even think about writing your own function! All these strategies will avoid having to copy and paste large chunks of code. If you're repeating anything, writing functions and loops are good ways to simplify.
 
 ```{r, stats, echo=TRUE, eval=TRUE}
-# Add your code here
+
+emp <- data.frame()
+
+(for(type in unique(clean$species)){
+ m <-  t.test(clean[clean$species == type & clean$treatment == 'CO2', 'activity',],
+       clean[clean$species == type & clean$treatment == 'control', 'activity'], paired = FALSE)
+ species <- type
+ mean_diff <- m$estimate[1]-m$estimate[2]
+ lower_confint <- m$conf.int[1]
+ upper_confint <- m$conf.int[2]
+ t_stat <- m$statistic
+ df <- m$parameter
+ p_value <- m$p.value
+ 
+ q <- data.frame(species, mean_diff, lower_confint, upper_confint, t_stat, df, p_value)
+ emp <- rbind(emp, q)
+})
+
+emp
+
 ```
 
-```{r, table1, echo=TRUE, eval=TRUE, tab.cap = "write a caption here"}
-# Using the resulting object created above, which should be a table with all the summary statistics, t, df and p-value for each species create a table. Note that there is a tab.cap argument in the chunk arguments. Write a caption here. 
+
+
+```{r, table1, echo=TRUE, eval=TRUE, tab.cap = "summary statistics for 6 t-tests on 6 species of fish between two treatment groups"}
+emp
 ```
 
 Now that you have a table, you can reference it within a document. For example, you can make a call to Table \@ref(tab:table1) by referring to the name of the code chunk. When you knit the html it will create a hyperlink to your table and insert a legend above the table for you. How cool is that!?
@@ -239,24 +260,36 @@ Moving forward on that you can also add in an object and whatever that objects v
 
 This is all **VERY** cool because that means if your code or data change than you can update your entire report very fast. It's also 100% reproducible. We know exactly where every single value in your report comes from. This is all pretty helpful when you want to check your code and report side-by-side. Now that you have a bit more detail fill in the following:
 
-Mean activity for `r "species name here"` in the control group was `r "add code to place mean for control"` (s / min) compared to the OA treatment group, which was `r "mean for acidificaton treatment"` (s / min). The difference between control and OA treatment means was `r "code mean difference bw treatment"` (s / min) (95% CI: `r "code for lower CI"` to `r "code for upper CI"`). 
+Mean activity for `r "humbug"` in the control group was `r mean((clean[clean$species == 'humbug' & clean$treatment == 'control', 'activity'])$activity)` (s / min) compared to the OA treatment group, which was `r mean((clean[clean$species == 'humbug' & clean$treatment == 'CO2', 'activity'])$activity)` (s / min). The difference between control and OA treatment means was `r mean((clean[clean$species == 'humbug' & clean$treatment == 'control', 'activity'])$activity) - mean((clean[clean$species == 'humbug' & clean$treatment == 'CO2', 'activity'])$activity)` (s / min) (95% CI: `r (emp[emp$species == 'humbug', ])$lower_confint` to `r (emp[emp$species == 'humbug', ])$upper_confint`). 
 
 Now, using what you just learnt, describe what the null hypothesis being tested was and provide statistical evidence (t-statistic, df, and p-value) to support your conclusion about whether we can reject the null hypothesis. Again, make sure you use in-line code. Write you answer below:
 
 **Write your answer here**
+Null Hypothesis - There was no difference in the mean activity between the control and ocean acidification treatment group. Our p-value.
 
+for the species humbug, the p-value observed was `r (emp[emp$species == 'humbug', ])$p_value`. This is below the generally accepted cutoff of p = 0.05, so based off of this test we can reject the null hypothesis. That is, we do observe a statistically significant difference in mean activity between treatments.
 
 Re-analyse the data for a single species using permutations instead of a t-test. Do your results differ?
 
 >**Stretch Task**:  If you really want a challenge try doing permutation tests for each species. Again, loops, functions or tidyverse (or even combinations might help). 
 
 ```{r, stretch2, echo=TRUE, eval=FALSE}
-# Add your code here.
+
+samp_dist <- tibble(permuted_p = rep(F,200), unusual = rep(F,200))
+
+for(x in 1:200){
+  newdata <- clean %>% mutate(treatment = sample(treatment, length(treatment), replace = F)) %>% filter(species == "humbug")
+  samp_dist$stat[x] <- t.test(newdata$activity[newdata$treatment == "CO2"],newdata$activity[newdata$treatment == "control"])$statistic
+  samp_dist$extreme[x] <- (abs(samp_dist$stat[x]) > abs(results_activity$T.stat[1]))
+}
+
+print(length(which(samp_dist$extreme)) / length(which(!samp_dist$extreme))) 
 ```
 
 Below. Add a few sentences for the species (or multiple species) you talked about above to describe the permutation results:
 
 **Add your text and inline code chunks here**
+
 
 # **Task 10**
 
